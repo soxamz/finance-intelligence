@@ -1,3 +1,5 @@
+import { InsightsPanel } from '@/components/insights-panel';
+
 export default function InsightsPage() {
   return (
     <div className='flex flex-1 flex-col gap-4 py-4 md:gap-6 md:py-6'>
@@ -6,6 +8,9 @@ export default function InsightsPage() {
         <p className='text-muted-foreground mt-1 text-sm'>
           Real-time intelligence feed and spending analytics.
         </p>
+      </div>
+      <div className='px-4 lg:px-6'>
+        <InsightsPanel />
       </div>
     </div>
   );
