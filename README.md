@@ -1,5 +1,5 @@
 # Finance Intelligence
-
+<img width="1800" height="760" alt="all-devices-black" src="https://github.com/user-attachments/assets/3a6608c5-db4e-4757-8534-714cca3e2b95" />
 A comprehensive personal finance dashboard built with Next.js 16, featuring transaction management, spending analytics, and role-based access control.
 
 ## Tech Stack
