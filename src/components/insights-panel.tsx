@@ -95,7 +95,7 @@ export function InsightsPanel() {
   }, [transactions]);
 
   return (
-    <div className='flex flex-col gap-6'>
+    <div className='flex flex-col gap-4'>
       {/* KPI Cards */}
       <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
         <Card className='ghost-border bg-surface-container'>

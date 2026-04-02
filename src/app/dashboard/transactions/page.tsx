@@ -9,7 +9,7 @@ export default function TransactionsPage() {
           Detailed logs of all fiscal activities across connected accounts.
         </p>
       </div>
-      <div className='px-4 lg:px-6'>
+      <div className='px-4 sm:px-6 lg:px-8'>
         <TransactionTable />
       </div>
     </div>

@@ -168,11 +168,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className='h-8 w-full justify-start gap-2 text-xs'
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             >
-              {theme === 'dark' ? (
-                <SunIcon className='size-4' />
-              ) : (
-                <MoonIcon className='size-4' />
-              )}
+              {theme === 'dark' ? <SunIcon className='size-4' /> : <MoonIcon className='size-4' />}
               {theme === 'dark' ? 'Light mode' : 'Dark mode'}
             </Button>
           </div>

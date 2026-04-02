@@ -284,9 +284,9 @@ export function TransactionTable() {
   return (
     <div className='flex flex-col gap-4'>
       {/* Toolbar */}
-      <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
-        <div className='flex flex-1 flex-wrap items-center gap-2'>
-          <div className='relative max-w-xs flex-1'>
+      <div className='flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between'>
+        <div className='flex flex-1 flex-wrap items-center gap-4'>
+          <div className='relative w-full'>
             <Search className='text-muted-foreground absolute top-1/2 left-2.5 size-4 -translate-y-1/2' />
             <Input
               placeholder='Search transactions...'
