@@ -2,7 +2,17 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
+import { useTheme } from 'next-themes';
+import {
+  CircleHelpIcon,
+  LayoutDashboardIcon,
+  LightbulbIcon,
+  MoonIcon,
+  ReceiptTextIcon,
+  Settings2Icon,
+  ShieldCheckIcon,
+  SunIcon,
+} from 'lucide-react';
 import { NavUser } from '@/components/nav-user';
 import {
   Sidebar,
@@ -10,18 +20,22 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
+  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import {
-  LayoutDashboardIcon,
-  ReceiptTextIcon,
-  LightbulbIcon,
-  Settings2Icon,
-  CircleHelpIcon,
-} from 'lucide-react';
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
+import { useFinanceStore } from '@/lib/store';
+import type { Role } from '@/types';
 
 const navItems = [
   {
@@ -62,6 +76,9 @@ const user = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
+  const role = useFinanceStore((s) => s.role);
+  const setRole = useFinanceStore((s) => s.setRole);
 
   return (
     <Sidebar collapsible='offcanvas' {...props}>
@@ -125,6 +142,43 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+
+      {/* Mobile-only controls — hidden on sm+ because header shows them there */}
+      <SidebarGroup className='sm:hidden'>
+        <SidebarGroupLabel className='flex items-center gap-1.5'>
+          <ShieldCheckIcon className='size-3.5' />
+          Preferences
+        </SidebarGroupLabel>
+        <SidebarGroupContent>
+          <div className='flex flex-col gap-2 px-2 pb-2'>
+            {/* Role switcher */}
+            <Select value={role} onValueChange={(v) => setRole(v as Role)}>
+              <SelectTrigger className='h-8 w-full text-xs'>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value='admin'>Admin</SelectItem>
+                <SelectItem value='viewer'>Viewer</SelectItem>
+              </SelectContent>
+            </Select>
+
+            {/* Theme toggle */}
+            <Button
+              variant='outline'
+              className='h-8 w-full justify-start gap-2 text-xs'
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            >
+              {theme === 'dark' ? (
+                <SunIcon className='size-4' />
+              ) : (
+                <MoonIcon className='size-4' />
+              )}
+              {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+            </Button>
+          </div>
+        </SidebarGroupContent>
+      </SidebarGroup>
+
       <SidebarFooter>
         <NavUser user={user} />
       </SidebarFooter>

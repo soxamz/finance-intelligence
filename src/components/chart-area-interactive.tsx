@@ -69,7 +69,7 @@ export function ChartAreaInteractive() {
   const filteredData = timeRange === '3m' ? chartData.slice(-3) : chartData;
 
   return (
-    <Card className='ghost-border bg-surface-container @container/card'>
+    <Card className='bg-surface-container @container/card h-full'>
       <CardHeader>
         <div>
           <CardTitle className='font-heading text-lg'>Balance Trajectory</CardTitle>

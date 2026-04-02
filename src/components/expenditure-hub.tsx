@@ -48,15 +48,15 @@ export function ExpenditureHub() {
   }, [transactions]);
 
   return (
-    <Card className='ghost-border bg-surface-container'>
+    <Card className='ghost-border bg-surface-container @container/card h-full'>
       <CardHeader>
         <CardTitle className='font-heading text-lg'>Expenditure Hub</CardTitle>
         <CardDescription className='text-label'>Categorical Distribution</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className='flex flex-col items-center gap-6 sm:flex-row'>
+        <div className='flex flex-col flex-wrap items-center justify-center gap-6 sm:flex-row'>
           {/* Donut chart */}
-          <div className='relative h-[180px] w-[180px] shrink-0'>
+          <div className='relative size-45 shrink-0'>
             <ResponsiveContainer width='100%' height='100%'>
               <PieChart>
                 <Pie

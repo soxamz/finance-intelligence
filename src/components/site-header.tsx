@@ -35,7 +35,7 @@ export function SiteHeader() {
 
   return (
     <header className='flex h-(--header-height) shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height)'>
-      <div className='flex w-full items-center gap-1 px-4 lg:gap-2 lg:px-6'>
+      <div className='flex w-full items-center gap-1 px-4 sm:px-6 lg:gap-2 lg:px-8'>
         <SidebarTrigger className='-ml-1' />
         <Separator orientation='vertical' className='mx-2 data-[orientation=vertical]:h-4' />
 
@@ -48,11 +48,10 @@ export function SiteHeader() {
 
         {/* Right side actions */}
         <div className='ml-auto flex items-center gap-2'>
-          {/* Role Switcher */}
-          <div className='flex items-center gap-1.5'>
-            <ShieldCheckIcon className='text-muted-foreground hidden size-4 sm:block' />
+          {/* Role Switcher — hidden on mobile, visible sm+ */}
+          <div className='hidden sm:block'>
             <Select value={role} onValueChange={(v) => setRole(v as Role)}>
-              <SelectTrigger className='h-8 w-[110px] text-xs'>
+              <SelectTrigger className='h-8 w-27.5 text-xs'>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -62,11 +61,11 @@ export function SiteHeader() {
             </Select>
           </div>
 
-          {/* Theme Toggle */}
+          {/* Theme Toggle — hidden on mobile, visible sm+ */}
           <Button
             variant='ghost'
             size='icon'
-            className='size-8'
+            className='hidden size-8 sm:inline-flex'
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           >
             <SunIcon className='size-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90' />
