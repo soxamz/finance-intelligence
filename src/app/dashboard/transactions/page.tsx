@@ -1,3 +1,5 @@
+import { TransactionTable } from '@/components/transaction-table';
+
 export default function TransactionsPage() {
   return (
     <div className='flex flex-1 flex-col gap-4 py-4 md:gap-6 md:py-6'>
@@ -6,6 +8,9 @@ export default function TransactionsPage() {
         <p className='text-muted-foreground mt-1 text-sm'>
           Detailed logs of all fiscal activities across connected accounts.
         </p>
+      </div>
+      <div className='px-4 lg:px-6'>
+        <TransactionTable />
       </div>
     </div>
   );
